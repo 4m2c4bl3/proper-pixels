@@ -1,6 +1,6 @@
 export function getAffectTiles() { return game.settings.get('proper-pixels', 'affectTiles') };
 export function getAffectTokens() { return game.settings.get('proper-pixels', 'affectTokens') };
-export function getAffectCharacterSheets() { return game.settings.get('proper-pixels', 'affectCharacterSheets') ? window['game'].system.id == 'id' : false};
+export function getAffectCharacterSheets() { return game.settings.get('proper-pixels', 'affectCharacterSheets') ? window['game'].system.id == 'id' : false };
 export function getIgnoreTag() { return game.settings.get('proper-pixels', 'tokenTag') };
 export function getShouldIgnorePreTaggerReady(token) {
     const tags = token.document?.flags?.tagger?.tags;
@@ -128,20 +128,22 @@ Hooks.on("preUpdateTile", (tile) => {
     }
 })
 
-if (window['game'].system.id == 'dnd5e') {
-    Hooks.on("renderActorSheet", () => {
-        if (getAffectCharacterSheets()) {
-            var list = document.getElementsByClassName("portrait")
-            for (let item of list)
-                item.style.imageRendering = "pixelated"
-        }
-    })
+const isSystem = (type) => window['game'].system.id == type
+const dnd5e = 'dnd5e'
 
-    Hooks.on("renderSidebarTab", () => {
-        if (getAffectCharacterSheets()) {
-            var list = document.getElementsByClassName("thumbnail")
-            for (let item of list)
-                item.style.imageRendering = "pixelated"
-        }
-    })
-}
+Hooks.on("renderActorSheet", () => {
+    if (isSystem(dnd5e) && getAffectCharacterSheets()) {
+        var list = document.getElementsByClassName("portrait")
+        for (let item of list)
+            item.style.imageRendering = "pixelated"
+    }
+})
+
+Hooks.on("renderSidebarTab", () => {
+    if (isSystem(dnd5e) && getAffectCharacterSheets()) {
+        var list = document.getElementsByClassName("thumbnail")
+        for (let item of list)
+            item.style.imageRendering = "pixelated"
+    }
+})
+
