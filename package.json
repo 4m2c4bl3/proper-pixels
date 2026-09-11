@@ -1,10 +1,11 @@
 {
   "name": "proper-pixels",
   "private": true,
-  "version": "1.4.0",
+  "version": "1.5.0",
   "description": "Change how Foundry displays pixelart tokens",
   "scripts": {
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "package": "rm -rf releases && mkdir -p releases && zip -r releases/module.zip module.json scripts -x '*.d.ts' && cp module.json releases/module.json"
   },
   "devDependencies": {
     "@league-of-foundry-developers/foundry-vtt-types": "13.346.0-beta.20250812191140",

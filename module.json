@@ -7,7 +7,7 @@
             "name": "wickedRobot#2069"
         }
     ],
-    "version": "1.4.0",
+    "version": "1.5.0",
     "esmodules": [
         "scripts/pixel-token.js"
     ],
@@ -17,7 +17,7 @@
         "maximum": "14"
     },
     "compatibleCoreVersion": "14",
-    "download": "https://github.com/Tronikart/proper-pixels/releases/latest/download/module.zip",
-    "manifest": "https://github.com/Tronikart/proper-pixels/releases/latest/download/module.json",
-    "url": "https://github.com/Tronikart/proper-pixels"
+    "download": "https://github.com/4m2c4bl3/proper-pixels/releases/latest/download/module.zip",
+    "manifest": "https://github.com/4m2c4bl3/proper-pixels/releases/latest/download/module.json",
+    "url": "https://github.com/4m2c4bl3/proper-pixels"
 }
